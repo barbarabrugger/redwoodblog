@@ -4,7 +4,7 @@ import { Link, routes } from '@redwoodjs/router'
 const BlogLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
   return (
-  <>
+    <>
       <header>
         <div className="flex-between">
           <h1>
