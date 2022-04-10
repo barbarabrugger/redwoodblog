@@ -13,6 +13,7 @@ web/types/graphql.d.ts
 api/types/graphql.d.ts
 .pnp.*
 .yarn/*
+docker-compose.yml
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
