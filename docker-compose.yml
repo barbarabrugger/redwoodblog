@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=redwood_dev
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+  db_test:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=redwood_test
+    ports:
+      - '5433:5432'
+    volumes:
+      - db_test:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
+  db_test:
+    driver: local
