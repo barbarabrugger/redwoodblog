@@ -32,3 +32,10 @@ model User {
   resetToken          String?
   resetTokenExpiresAt DateTime?
 }
+
+model City {
+  id     Int    @id @default(autoincrement())
+  name   String
+  zip    Int
+  canton String
+}

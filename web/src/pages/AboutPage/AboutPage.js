@@ -1,3 +1,4 @@
+import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 const AboutPage = () => {
@@ -6,7 +7,8 @@ const AboutPage = () => {
       <MetaTags title="About" description="About page" />
       <p>
         This site was created to demonstrate the mastery of Redwood: Look on my
-        works, ye mighty, and despair!
+        works, ye mighty, an
+        <Link to={routes.home()}>Return home</Link>d despair!
       </p>
     </>
   )
