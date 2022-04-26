@@ -46,7 +46,7 @@ const checkboxInputTag = (checked) => {
 }
 
 const City = ({ city }) => {
-  const [deleteCity] = useMutation(DELETE_CITY_MUTATION, {
+  /*const [deleteCity] = useMutation(DELETE_CITY_MUTATION, {
     onCompleted: () => {
       toast.success('City deleted')
       navigate(routes.cities())
@@ -60,33 +60,36 @@ const City = ({ city }) => {
     if (confirm('Are you sure you want to delete city ' + id + '?')) {
       deleteCity({ variables: { id } })
     }
-  }
+  }*/
 
   return (
     <>
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            City {city.id} Detail
-          </h2>
-        </header>
-        <table className="rw-table">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <tbody>
-            <tr>
-              <th>Id</th>
-              <td>{city.id}</td>
+            <tr className="order-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+              <th className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                Id
+              </th>
+              <td className="px-6 py-4">{city.id}</td>
             </tr>
-            <tr>
-              <th>Name</th>
-              <td>{city.name}</td>
+            <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+              <th className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                Name
+              </th>
+              <td className="px-6 py-4">{city.name}</td>
             </tr>
-            <tr>
-              <th>Zip</th>
-              <td>{city.zip}</td>
+            <tr className="order-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+              <th className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                Zip
+              </th>
+              <td className="px-6 py-4">{city.zip}</td>
             </tr>
-            <tr>
-              <th>Canton</th>
-              <td>{city.canton}</td>
+            <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+              <th className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                Canton
+              </th>
+              <td className="px-6 py-4">{city.canton}</td>
             </tr>
           </tbody>
         </table>
@@ -94,17 +97,10 @@ const City = ({ city }) => {
       <nav className="rw-button-group">
         <Link
           to={routes.editCity({ id: city.id })}
-          className="rw-button rw-button-blue"
+          className="btn btn-red dark:btn-blue"
         >
           Edit
         </Link>
-        <button
-          type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(city.id)}
-        >
-          Delete
-        </button>
       </nav>
     </>
   )

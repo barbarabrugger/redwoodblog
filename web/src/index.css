@@ -8,6 +8,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'tailwindcss/variants';
 /**
  * END --- SETUP TAILWINDCSS EDIT
  */
@@ -77,4 +78,25 @@ textarea.error {
 
 .flex-between button {
   display: inline;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center h-10 px-6 m-2 text-sm transition-colors duration-150 rounded-lg;
+  }
+
+  .btn-red {
+    @apply text-red-100 bg-red-700 ;
+  }
+  .btn-red:hover{
+    @apply bg-red-800;
+  }
+
+  .btn-blue {
+    @apply bg-blue-700 text-blue-100;
+  }
+  .btn-blue:hover{
+    @apply bg-blue-800;
+  }
+
 }
