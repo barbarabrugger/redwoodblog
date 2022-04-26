@@ -6,23 +6,11 @@ import {
   TextField,
   NumberField,
   Submit,
+  CheckboxField,
 } from '@redwoodjs/forms'
-
-
 
 const CityForm = (props) => {
   const onSubmit = (data) => {
-
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
     props.onSave(data, props?.city?.id)
   }
 
@@ -35,7 +23,7 @@ const CityForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
           name="name"
           className="rw-label"
@@ -43,15 +31,14 @@ const CityForm = (props) => {
         >
           Name
         </Label>
-        
-          <TextField
-            name="name"
-            defaultValue={props.city?.name}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="name"
+          defaultValue={props.city?.name}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="name" className="rw-field-error" />
 
@@ -62,15 +49,14 @@ const CityForm = (props) => {
         >
           Zip
         </Label>
-        
-          <NumberField
-            name="zip"
-            defaultValue={props.city?.zip}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <NumberField
+          name="zip"
+          defaultValue={props.city?.zip}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="zip" className="rw-field-error" />
 
@@ -81,23 +67,33 @@ const CityForm = (props) => {
         >
           Canton
         </Label>
-        
-          <TextField
-            name="canton"
-            defaultValue={props.city?.canton}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
 
-        <FieldError name="canton" className="rw-field-error" />
+        <TextField
+          name="canton"
+          defaultValue={props.city?.canton}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="canton" className="rw-input-error" />
+
+        <Label
+          name="active"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Active
+        </Label>
+
+        <CheckboxField
+          name="active"
+          defaultValue={props.city?.active}
+          className="rw-checkbox"
+        />
 
         <div className="rw-button-group">
-          <Submit
-            disabled={props.loading}
-            className="rw-button rw-button-blue"
-          >
+          <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
         </div>

@@ -2,8 +2,8 @@ import type { Prisma } from '@prisma/client'
 
 export const standard = defineScenario<Prisma.CityCreateArgs>({
   city: {
-    one: { data: { name: 'String', zip: 8333365, canton: 'String' } },
-    two: { data: { name: 'String', zip: 5364383, canton: 'String' } },
+    one: { data: { name: 'Zürich', zip: 8000, canton: 'ZH' } },
+    two: { data: { name: 'Siebnen', zip: 8854, canton: 'SZ' } },
   },
 })
 

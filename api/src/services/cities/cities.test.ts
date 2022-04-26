@@ -22,22 +22,22 @@ describe('cities', () => {
 
   scenario('creates a city', async () => {
     const result = await createCity({
-      input: { name: 'String', zip: 7204199, canton: 'String' },
+      input: { name: 'Bern', zip: 3000, canton: 'BE' },
     })
 
-    expect(result.name).toEqual('String')
-    expect(result.zip).toEqual(7204199)
-    expect(result.canton).toEqual('String')
+    expect(result.name).toEqual('Bern')
+    expect(result.zip).toEqual(3000)
+    expect(result.canton).toEqual('BE')
   })
 
   scenario('updates a city', async (scenario: StandardScenario) => {
     const original = await city({ id: scenario.city.one.id })
     const result = await updateCity({
       id: original.id,
-      input: { name: 'String2' },
+      input: { name: 'Genf' },
     })
 
-    expect(result.name).toEqual('String2')
+    expect(result.name).toEqual('Genf')
   })
 
   scenario('deletes a city', async (scenario: StandardScenario) => {

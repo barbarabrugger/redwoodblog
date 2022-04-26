@@ -1,6 +1,6 @@
 import { render, screen } from '@redwoodjs/testing/web'
 import { Loading, Empty, Failure, Success } from './LocationsCell'
-import { standard } from './LocationsCell.mock'
+import { missingPlz, standard } from './LocationsCell.mock'
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float and DateTime types.
@@ -35,7 +35,25 @@ describe('LocationsCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success locations={standard().locations} />)
+      render(<Success cities={standard().locations} />)
     }).not.toThrow()
+  })
+
+  it('renders all locations', async () => {
+    expect(() => {
+      render(<Success cities={standard().locations} />)
+    }).not.toThrow()
+    expect(
+      screen.getByRole('heading', { name: 'St. Gallen' })
+    ).toBeInTheDocument()
+    expect(screen.getByText('9000')).toBeInTheDocument()
+    expect(screen.getByText('SG')).toBeInTheDocument()
+  })
+
+  it('renders location with mising plz', async () => {
+    expect(() => {
+      render(<Success cities={missingPlz.locations} />)
+    }).not.toThrow()
+    expect(screen.queryByText('9000')).not.toBeInTheDocument()
   })
 })

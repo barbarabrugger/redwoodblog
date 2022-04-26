@@ -30,9 +30,9 @@ export const Success = ({ cities }: CellSuccessProps<CitiesQuery>) => {
       <ul>
         {cities.map((city) => (
           <>
-            <li>
+            <li key={city.id}>
               <Link to={routes.location({ id: city.id })}>
-                <h2>{city.name}</h2>
+                <h2>{city.zip}</h2> <h2>{city.name}</h2> <h2>{city.canton}</h2>
               </Link>
             </li>
           </>
