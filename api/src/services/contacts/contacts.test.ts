@@ -5,6 +5,7 @@ import {
   updateContact,
   deleteContact,
 } from './contacts'
+import type { StandardScenario } from './contacts.scenarios'
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float and DateTime types.
@@ -13,13 +14,13 @@ import {
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
 describe('contacts', () => {
-  scenario('returns all contacts', async (scenario) => {
+  scenario('returns all contacts', async (scenario: StandardScenario) => {
     const result = await contacts()
 
     expect(result.length).toEqual(Object.keys(scenario.contact).length)
   })
 
-  scenario('returns a single contact', async (scenario) => {
+  scenario('returns a single contact', async (scenario: StandardScenario) => {
     const result = await contact({ id: scenario.contact.one.id })
 
     expect(result).toEqual(scenario.contact.one)
@@ -27,15 +28,21 @@ describe('contacts', () => {
 
   scenario('creates a contact', async () => {
     const result = await createContact({
-      input: { name: 'String', email: 'String', message: 'String' },
+      input: {
+        name: 'String',
+        email: 'String',
+        message: 'String',
+        phone: 'String',
+      },
     })
 
     expect(result.name).toEqual('String')
     expect(result.email).toEqual('String')
     expect(result.message).toEqual('String')
+    expect(result.phone).toEqual('String')
   })
 
-  scenario('updates a contact', async (scenario) => {
+  scenario('updates a contact', async (scenario: StandardScenario) => {
     const original = await contact({ id: scenario.contact.one.id })
     const result = await updateContact({
       id: original.id,
@@ -45,7 +52,7 @@ describe('contacts', () => {
     expect(result.name).toEqual('String2')
   })
 
-  scenario('deletes a contact', async (scenario) => {
+  scenario('deletes a contact', async (scenario: StandardScenario) => {
     const original = await deleteContact({ id: scenario.contact.one.id })
     const result = await contact({ id: original.id })
 
