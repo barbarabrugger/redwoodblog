@@ -15,6 +15,7 @@ import BlogLayout from './layouts/BlogLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/charts" page={ChartsPage} name="charts" />
       <Set wrap={CitiesLayout}>
         <Route path="/cities/new" page={CityNewCityPage} name="newCity" />
         <Route path="/cities/{id:Int}/edit" page={CityEditCityPage} name="editCity" />
