@@ -78,20 +78,6 @@ const CityForm = (props) => {
 
         <FieldError name="canton" className="rw-input-error" />
 
-        <Label
-          name="active"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Active
-        </Label>
-
-        <CheckboxField
-          name="active"
-          defaultValue={props.city?.active}
-          className="rw-checkbox"
-        />
-
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
