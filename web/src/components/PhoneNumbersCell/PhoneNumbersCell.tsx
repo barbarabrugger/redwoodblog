@@ -4,7 +4,7 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 export const QUERY = gql`
   query PhoneNumbersQuery {
-    phoneNumbers {
+    contacts {
       id
     }
   }
@@ -18,7 +18,9 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ phoneNumbers }: CellSuccessProps<PhoneNumbersQuery>) => {
+export const Success = ({
+  phoneNumbers,
+}: CellSuccessProps<PhoneNumbersQuery>) => {
   return (
     <ul>
       {phoneNumbers.map((item) => {
